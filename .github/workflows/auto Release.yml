@@ -1,0 +1,24 @@
+---
+name: "Release"
+
+on:
+  push:
+    branches:
+      - "live"
+
+jobs:
+  # This workflow contains a single job called "build"
+  Release:
+    name: "Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          draft: true
+          title: "Latest Build"
+          
+
+  
