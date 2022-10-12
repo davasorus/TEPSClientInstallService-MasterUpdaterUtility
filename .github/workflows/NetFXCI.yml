@@ -4,7 +4,7 @@ name: DotNet Framework 4.8 Build Status
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ dev-branch ] 
+    branches: [ dev-branch, live ] 
   pull_request:
     branches: [ live ]
 
@@ -31,7 +31,7 @@ jobs:
         
         # restore the .sln of your project
       - name: restore NuGet packages
-        run: nuget restore 'TEPSClientInstallMasterService-UpdateUtility.sln
+        run: nuget restore 'TEPSClientInstallMasterService-UpdateUtility.sln'
         
         # build the .sln of your project
       - name: Build Application
