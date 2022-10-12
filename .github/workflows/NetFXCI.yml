@@ -31,7 +31,7 @@ jobs:
         
         # restore the .sln of your project
       - name: restore NuGet packages
-        run: nuget restore 'TEPSClientInstallMasterService-UpdateUtility.sln
+        run: nuget restore 'TEPSClientInstallMasterService-UpdateUtility.sln'
         
         # build the .sln of your project
       - name: Build Application
