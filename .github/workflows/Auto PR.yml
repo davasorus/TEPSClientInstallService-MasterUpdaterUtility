@@ -1,0 +1,27 @@
+name: Auto PR
+
+on:
+  push:
+    branches:
+    - "dev-branch"  # Support wildcard matching
+
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3.1.0
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        source_branch: "dev-branch"                                 # If blank, default: triggered branch
+        destination_branch: "live"                      # If blank, default: master
+        pr_title: "Pulling ${{ github.event.commits[0].message }} into Live" # Title of pull request
+        pr_body: ":crown: An automated Pull Request"              # Full markdown support, requires pr_title to be set
+        pr_template: ""   # Path to pull request template, requires pr_title to be set, excludes pr_body
+        pr_reviewer: "davasorus"                         # Comma-separated list (no spaces)
+        pr_assignee: "davasorus"                         # Comma-separated list (no spaces)
+        pr_label: "automatic"                               # Comma-separated list (no spaces)
+        pr_milestone: ""                       # Milestone name
+        pr_draft: false                                    # Creates pull request as draft
+        pr_allow_empty: false                              # Creates pull request even if there are no changes
+        github_token: ${{ secrets.GITHUB_TOKEN }}

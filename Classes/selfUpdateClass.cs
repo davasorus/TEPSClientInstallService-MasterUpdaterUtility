@@ -431,7 +431,7 @@ namespace TEPSClientInstallService_UpdateUtility.Classes
                 string logEntry = app + " renamed to " + appName + "_OldVersion" + appExtension;
                 loggingClass.logEntryWriter(logEntry, "info");
 
-                File.Move(sourceFile, destinationFile);
+                File.Copy(Path.Combine(@"C:\ProgramData\Tyler Technologies\Public Safety\Tyler-Client-Install-Master-Service\Downloads", sourceFile), Path.Combine(@"C:\ProgramData\Tyler Technologies\Public Safety\Tyler-Client-Install-Master-Service\Downloads\Updater", destinationFile), true);
 
                 string logEntry1 = sourceFile + " renamed to " + destinationFile;
                 loggingClass.logEntryWriter(logEntry1, "info");
