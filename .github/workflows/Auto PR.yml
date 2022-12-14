@@ -9,7 +9,7 @@ jobs:
   pull-request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.1.0
+    - uses: actions/checkout@v3.2.0
     - name: pull-request
       uses: repo-sync/pull-request@v2
       with:
